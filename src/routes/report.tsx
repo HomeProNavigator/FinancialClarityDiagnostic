@@ -13,6 +13,7 @@ export const Route = createFileRoute("/report")({
       description:
         "Your personalized Financial Clarity Report — score, findings, and next steps for books, cash, forecasting, and systems.",
       path: "/report",
+      robots: "noindex,nofollow",
     }),
   component: ReportPage,
 });

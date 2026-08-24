@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /inbox
 Disallow: /connect
+Disallow: /report
 Disallow: /visari-intro.html
+
+Sitemap: https://financialclaritydiagnostic.netlify.app/sitemap.xml

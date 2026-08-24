@@ -7,7 +7,7 @@ export const Route = createFileRoute("/start")({
     pageHead({
       title: "Start your free Financial Clarity Report",
       description:
-        "Answer 10 high-signal questions about books, cash flow, forecasting, and systems. Get a personalized Financial Clarity Report in under three minutes.",
+        "Answer nine questions about books, cash flow, forecasting, and systems. Get a personalized Financial Clarity Report in under three minutes.",
       path: "/start",
     }),
   component: StartPage,
