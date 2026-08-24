@@ -1,12 +1,10 @@
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Download, Mail, Printer } from "lucide-react";
+import { ArrowLeft, Download, Mail, Printer } from "lucide-react";
 import { ScoreRing } from "@/components/score-ring";
 import { VisariCta } from "@/components/visari-cta";
-import { VisariLink, useRefCode } from "@/components/visari-link";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/diagnostic/analytics";
-import { visariUrl } from "@/lib/diagnostic/referral";
 import {
   FRICTION_LABEL,
   INDUSTRY_LABEL,
@@ -21,7 +19,7 @@ const SEV: Record<ReportFinding["severity"], { label: string; className: string 
   strength: { label: "Strength", className: "text-good bg-good/10" },
 };
 
-function summaryMailto(report: ClarityReport, ref: string | null) {
+function summaryMailto(report: ClarityReport) {
   const lines = [
     report.headline,
     "",
@@ -35,7 +33,7 @@ function summaryMailto(report: ClarityReport, ref: string | null) {
     "Next steps:",
     ...report.nextSteps.map((s) => `• ${s.title} (${s.timeframe})`),
     "",
-    `If you want the systems and cadence installed: ${visariUrl("/contact", { utm_content: "email-summary" }, ref)}`,
+    "If you want Visari to follow up for a free consultation, use the request on your report — they reach out. No second form.",
   ];
   const params = new URLSearchParams({
     subject: `Your Financial Clarity Report — ${report.score} ${report.bandLabel}`,
@@ -51,7 +49,6 @@ export function ReportView({
   report: ClarityReport;
   sample?: boolean;
 }) {
-  const ref = useRefCode();
   const meta = useMemo(() => {
     const bits = [
       report.answers.revenue ? REVENUE_LABEL[report.answers.revenue] : null,
@@ -74,7 +71,7 @@ export function ReportView({
 
   function emailReport() {
     track("email_clicked", { sample });
-    window.location.href = summaryMailto(report, ref);
+    window.location.href = summaryMailto(report);
   }
 
   return (
@@ -220,18 +217,11 @@ export function ReportView({
         <VisariCta placement="report-bottom" />
       </div>
 
-      <div className="no-print mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+      <div className="no-print mt-8">
         <Button variant="secondary" onClick={savePdf}>
           <Download className="size-4" strokeWidth={1.75} />
           Save as PDF
         </Button>
-        <VisariLink
-          placement="report-contact"
-          className="inline-flex h-12 items-center gap-1.5 text-sm text-muted hover:text-fg"
-        >
-          Or write Visari directly
-          <ArrowUpRight className="size-4" strokeWidth={1.75} />
-        </VisariLink>
       </div>
     </article>
   );

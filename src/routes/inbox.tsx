@@ -19,18 +19,22 @@ function InboxPage() {
         Referring partners
       </p>
       <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">
-        Introductions live in Netlify Forms
+        Consult requests live in Netlify Forms
       </h1>
       <div className="mt-6 space-y-5 text-[1.05rem] leading-relaxed text-fg/90">
         <p>
-          When someone fills the short form and continues to Visari, Netlify
-          stores the submission. Form name:{" "}
+          When someone requests a free consultation, Netlify stores the
+          submission. Form name:{" "}
           <code className="rounded-sm bg-bg-warm px-1 text-sm">visari-intro</code>
-          . Then they are sent to Visari’s contact page with{" "}
+          . Pass that row to Visari — they follow up to schedule. Your referral
+          code is on every row (
           <code className="rounded-sm bg-bg-warm px-1 text-sm">ref=kyle</code>{" "}
-          (or whatever code brought them here).
+          by default).
         </p>
-        <p>Each row includes name, email, company, note, referral code, the Clarity Score, every diagnostic answer, and the written report.</p>
+        <p>
+          Each row is name, email, phone, company, optional note, referral code,
+          and the diagnostic questions with the owner’s answers.
+        </p>
         <ol className="list-decimal space-y-3 pl-5">
           <li>
             Open{" "}
@@ -45,13 +49,11 @@ function InboxPage() {
           </li>
           <li>
             Select <strong>visari-intro</strong>. Turn on email notifications so
-            you see every new introduction without opening the dashboard.
+            every request hits your inbox.
           </li>
           <li>
-            Match the list to Visari conversations by email — same person, same
-            time window. Visari’s booking URL will also carry{" "}
-            <code className="rounded-sm bg-bg-warm px-1 text-sm">utm_term</code>{" "}
-            and <code className="rounded-sm bg-bg-warm px-1 text-sm">ref</code>.
+            Forward the row to Visari (name, email, phone, company, answers).
+            They schedule the free consultation. Your <code className="rounded-sm bg-bg-warm px-1 text-sm">ref</code> is on the row so you get credit.
           </li>
         </ol>
         <p className="text-muted">

@@ -37,12 +37,11 @@ function PrivacyPage() {
           with a copy of the findings.
         </p>
         <p>
-          If you choose “Start the conversation,” you land on a short
-          introduction form (name and email, optional company and note). That
-          record — including your diagnostic answers and the report — is stored
-          as a Netlify form submission so Visari Financial and the referring
-          partner can follow up. Then you are sent to Visari’s contact page with
-          the referral tagged on the URL.
+          If you request a consultation, you submit name, email, phone, company,
+          and an optional note. We also attach the diagnostic questions and
+          answers. That record is stored as a Netlify form submission and passed
+          to Visari Financial so they can follow up about a free business
+          consultation. You are not sent to another form.
         </p>
         <p>
           If you arrived with a referral code in the URL (

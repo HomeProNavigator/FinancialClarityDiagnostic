@@ -41,16 +41,20 @@ export function SiteFooter() {
           <p className="text-xs uppercase tracking-[0.16em] text-subtle">Partner</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <VisariLink placement="footer-home" className="text-fg hover:text-primary">
+              <a
+                href="https://visarifinancial.com"
+                className="text-fg hover:text-primary"
+                rel="noopener noreferrer"
+              >
                 Visari Financial
-              </VisariLink>
+              </a>
             </li>
             <li>
               <VisariLink
                 placement="footer-contact"
                 className="text-fg hover:text-primary"
               >
-                Contact Visari
+                Request a consultation
               </VisariLink>
             </li>
             <li>
