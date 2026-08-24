@@ -25,6 +25,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/advisors" className="text-fg hover:text-primary">
+                For advisors
+              </Link>
+            </li>
+            <li>
               <Link to="/guides" className="text-fg hover:text-primary">
                 Guides
               </Link>

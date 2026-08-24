@@ -108,6 +108,45 @@ function Home() {
       <section className="border-t border-border">
         <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
           <p className="text-xs uppercase tracking-[0.18em] text-subtle">
+            Why take it
+          </p>
+          <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
+            A score you can use Monday. Not a pitch.
+          </h2>
+          <ul className="mt-8 divide-y divide-border border-y border-border">
+            {[
+              {
+                t: "What you get",
+                b: "A Clarity Score (1–100), five signals — books, cash, forecast, systems, profit — and an order of operations written in plain English.",
+              },
+              {
+                t: "What it costs",
+                b: "Nothing. Nine questions. Under three minutes. Built for U.S. owners at roughly $500k–$10M.",
+              },
+              {
+                t: "What happens to your answers",
+                b: "They stay on this device. We do not sell data. Nothing is shared until you request a free consultation.",
+              },
+              {
+                t: "If you want the function installed",
+                b: "Visari Financial — a fractional finance partner, not a dashboard vendor — follows up. One form. No second site.",
+              },
+            ].map((row) => (
+              <li
+                key={row.t}
+                className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-8 sm:py-5"
+              >
+                <h3 className="text-sm font-medium">{row.t}</h3>
+                <p className="text-sm leading-relaxed text-muted">{row.b}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
+          <p className="text-xs uppercase tracking-[0.18em] text-subtle">
             What the report covers
           </p>
           <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
@@ -181,6 +220,10 @@ function Home() {
                 t: "The operator",
                 b: "A real business, real complexity. You want a close you trust and a picture that does not arrive after the meeting.",
               },
+              {
+                t: "Not this",
+                b: "Startups hunting a dashboard, companies with a sitting finance team, or anyone who wants a pitch deck. This is a diagnostic.",
+              },
             ].map((c) => (
               <li key={c.t} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-8 sm:py-5">
                 <h3 className="text-sm font-medium">{c.t}</h3>
@@ -220,6 +263,49 @@ function Home() {
             className="mt-6 inline-flex items-center text-sm text-muted hover:text-fg"
           >
             All guides
+            <ArrowRight className="ml-1 size-4" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
+          <p className="text-xs uppercase tracking-[0.18em] text-subtle">
+            Straight answers
+          </p>
+          <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
+            What this is not.
+          </h2>
+          <ul className="mt-8 divide-y divide-border border-y border-border">
+            {[
+              {
+                q: "Is this a sales trap?",
+                a: "The report is complete without talking to anyone. A consult is optional, on a later screen, and only if you ask.",
+              },
+              {
+                q: "Who sees my answers?",
+                a: "You. If you request a consult, Visari Financial sees your contact details and the questions you answered — so they are not guessing.",
+              },
+              {
+                q: "Can my attorney, banker, or broker send this?",
+                a: "Yes. They keep their engagement. You get a finance read they should not have to improvise in the hallway.",
+              },
+              {
+                q: "Do I have to switch accountants to use it?",
+                a: "No. Take the diagnostic either way. Installing a full finance function is a separate decision, after you have seen the score.",
+              },
+            ].map((row) => (
+              <li key={row.q} className="py-5">
+                <h3 className="text-sm font-medium">{row.q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{row.a}</p>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/advisors"
+            className="mt-6 inline-flex items-center text-sm text-muted hover:text-fg"
+          >
+            For attorneys, brokers, bankers, and coaches
             <ArrowRight className="ml-1 size-4" />
           </Link>
         </div>

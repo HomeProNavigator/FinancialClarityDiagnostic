@@ -30,6 +30,12 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
           <Link
+            to="/advisors"
+            className="hidden h-10 items-center px-3 text-sm text-muted hover:text-fg sm:inline-flex"
+          >
+            Advisors
+          </Link>
+          <Link
             to="/guides"
             className="hidden h-10 items-center px-3 text-sm text-muted hover:text-fg sm:inline-flex"
           >
