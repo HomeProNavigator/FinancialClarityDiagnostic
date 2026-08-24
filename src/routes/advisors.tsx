@@ -13,7 +13,7 @@ export const Route = createFileRoute("/advisors")({
   component: AdvisorsPage,
 });
 
-const BLURB = `A free three-minute diagnostic for owners who’ve outgrown basic bookkeeping. It scores books, cash, forecasting, systems, and profit, then writes a plain-English report. Answers stay on their device unless they ask Visari Financial to follow up. You stay in your lane — this is not a competing engagement.
+const BLURB = `A free three-minute diagnostic for owners who’ve outgrown basic bookkeeping. It scores books, cash, forecasting, systems, and profit, then writes a report in ordinary language. Answers stay on their device unless they ask Visari Financial to follow up. You stay in your lane. This is not a competing engagement.
 
 ${SITE_URL}`;
 
@@ -52,7 +52,7 @@ function AdvisorsPage() {
           },
           {
             t: "They leave with something useful",
-            b: "A Clarity Score, five signals, and an order of operations — even if they never talk to anyone.",
+            b: "A Clarity Score, five signals, and an order of operations, even if they never talk to anyone.",
           },
           {
             t: "No ambush",
@@ -75,7 +75,7 @@ function AdvisorsPage() {
           Who to send it to
         </p>
         <h2 className="mt-3 font-display text-2xl tracking-tight">
-          Owners at $500k–$10M who can feel the lag.
+          Owners at $500k-$10M who can feel the lag.
         </h2>
         <p className="mt-3 text-[1.02rem] leading-relaxed text-muted">
           Cash tighter than the P&L. A hire they can’t underwrite. Month-end

@@ -1,6 +1,6 @@
 # Financial Clarity Diagnostic
 
-Free 3-minute finance diagnostic for growing U.S. businesses. Owners answer a short questionnaire, get a Clarity Score (1–100) and a plain-English report, then can request a free consultation with [Visari Financial](https://visarifinancial.com).
+Free 3-minute finance diagnostic for growing U.S. businesses. Owners answer a short questionnaire, get a Clarity Score (1-100) and a plain-English report, then can request a free consultation with [Visari Financial](https://visarifinancial.com).
 
 Requests are tagged to the referring partner (`ref=kyle` by default).
 
@@ -10,7 +10,7 @@ Requests are tagged to the referring partner (`ref=kyle` by default).
 - Multi-step diagnostic (under 3 minutes)
 - Personalized report with print/PDF and email summary
 - Consultation request (name, email, phone, company) plus diagnostic Q&A
-- Netlify Forms capture — you pass the row to Visari; they follow up. No second form.
+- Netlify Forms capture. You pass the row to Visari; they follow up. No second form.
 
 ## Deploy on Netlify
 

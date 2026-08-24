@@ -7,7 +7,7 @@ function optionLabel(questionId: keyof Answers, value?: string) {
   return q?.options?.find((o) => o.value === value)?.label ?? value;
 }
 
-/** Numbered questions and answers, one pair per block — easy to read in Netlify. */
+/** Numbered questions and answers, one pair per block. Easy to read in Netlify. */
 export function formatAnswers(answers: Answers) {
   const blocks: string[] = [];
   let n = 0;

@@ -16,7 +16,7 @@ export function ReportExcerpt({ onOpenSample }: { onOpenSample: () => void }) {
   return (
     <figure className="rounded-xl bg-surface px-5 py-6 shadow-card sm:px-7 sm:py-8">
       <p className="text-xs uppercase tracking-[0.18em] text-subtle">
-        Sample excerpt · $1–3M construction
+        Sample excerpt · $1-3M construction
       </p>
       <blockquote className="mt-4 font-display text-[1.35rem] leading-snug tracking-tight sm:text-2xl">
         {report.headline}

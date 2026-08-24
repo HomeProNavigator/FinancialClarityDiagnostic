@@ -9,7 +9,7 @@ import { VisariMoreLine } from "@/components/visari-link";
 const STRENGTHS = [
   {
     title: "The close",
-    body: "Full-stack accounting and a monthly package you can use in the room — not a tax folder in March.",
+    body: "Full-stack accounting and a monthly package you can use in the room, not a tax folder in March.",
   },
   {
     title: "Cash",
@@ -21,7 +21,7 @@ const STRENGTHS = [
   },
   {
     title: "The seat at the table",
-    body: "Fractional finance that can answer “can we afford this?” before you commit — not a year-end recap.",
+    body: "Fractional finance that can answer “can we afford this?” before you commit, not a year-end recap.",
   },
 ];
 
@@ -49,12 +49,12 @@ export function VisariPartner({
       <Heading className={headingClass}>
         {variant === "footer"
           ? "Ready for Visari to follow up?"
-          : "We built this to name the gap. Visari is who closes it."}
+          : "This tool names the gap. Visari does the work it names."}
       </Heading>
       <p className="mt-4 max-w-2xl text-[1.02rem] leading-relaxed text-primary-fg/85">
         {variant === "footer"
-          ? "Same request as above. Name, email, phone, and company — we pass your diagnostic answers to Visari. They reach out to schedule a free business consultation."
-          : "This diagnostic is independent of any pitch. We partner with Visari Financial because they do the job the report describes: they run the finance function for owners who have outgrown bookkeeping. Not a dashboard. Not a deck. The close, the cash view, the systems, and a partner in the decisions."}
+          ? "Same request as above. Name, email, phone, and company. We pass your diagnostic answers to Visari. They reach out to schedule a free business consultation."
+          : "This diagnostic is independent of any pitch. We partner with Visari Financial because they do the job the report describes: they run the finance function for owners who have outgrown bookkeeping: the close, the cash view, the systems, and someone who can sit in the decisions."}
       </p>
 
       {variant !== "footer" && (
@@ -87,7 +87,7 @@ export function VisariPartner({
             >
               Run yours
             </Link>{" "}
-            to request a free consultation — we pass it to Visari, they follow
+            to request a free consultation. We pass it to Visari, they follow
             up.
           </p>
         ) : sent ? (

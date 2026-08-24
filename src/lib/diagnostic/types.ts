@@ -84,10 +84,10 @@ export const BAND_COPY: Record<
   ClarityBand,
   { label: string; range: string }
 > = {
-  fog: { label: "Fog", range: "0–39" },
-  forming: { label: "Forming", range: "40–64" },
-  clear: { label: "Clear", range: "65–84" },
-  sharp: { label: "Sharp", range: "85–100" },
+  fog: { label: "Fog", range: "0-39" },
+  forming: { label: "Forming", range: "40-64" },
+  clear: { label: "Clear", range: "65-84" },
+  sharp: { label: "Sharp", range: "85-100" },
 };
 
 export function bandFromScore(score: number): ClarityBand {

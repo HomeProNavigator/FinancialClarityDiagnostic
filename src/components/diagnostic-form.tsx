@@ -50,7 +50,7 @@ export function DiagnosticForm() {
       await navigate({ to: "/report" });
     } catch {
       setError(
-        "The report could not be generated just then. Try once more — your answers are saved.",
+        "The report could not be generated just then. Try once more. Your answers are saved.",
       );
       setBusy(false);
     }
@@ -91,7 +91,7 @@ export function DiagnosticForm() {
         <ul className="mt-8 space-y-3 text-sm text-muted">
           {[
             "Scoring books and the close",
-            "Checking cash today and 30–90 days out",
+            "Checking cash today and 30-90 days out",
             "Weighing forecast and systems maturity",
             "Writing findings a busy owner can use",
           ].map((line, i) => (

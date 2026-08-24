@@ -25,7 +25,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Free 3-minute financial clarity diagnostic for U.S. business owners. See gaps in books, cash flow visibility, forecasting, and systems — then get a personalized report.",
+          "Free 3-minute financial clarity diagnostic for U.S. business owners. See gaps in books, cash flow visibility, forecasting, and systems, then get a personalized report.",
       },
     ],
     links: [

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       title:
         "Financial Clarity Diagnostic for Growing Businesses | Free Cash Flow & Finance Check",
       description:
-        "Free 3-minute financial clarity diagnostic for U.S. business owners. See whether your finance function is keeping up — books, cash visibility, forecasting, systems, and profit. In partnership with Visari Financial.",
+        "Free 3-minute financial clarity diagnostic for U.S. business owners. See whether your finance function is keeping up: books, cash visibility, forecasting, systems, and profit. In partnership with Visari Financial.",
       path: "/",
     }),
   component: Home,
@@ -68,9 +68,8 @@ function Home() {
             </VisariSiteLink>
           </p>
           <p className="mt-5 text-[1.07rem] leading-relaxed text-muted">
-            Nine questions. A Clarity Score. A plain-English report on books,
-            cash, forecast, systems, and profit — for U.S. owners at $500k–$10M
-            who have outgrown bookkeeping.
+            Nine questions, then a score and a report you can actually read.
+            For U.S. owners at $500k-$10M who have outgrown bookkeeping.
           </p>
           <div className="mt-8">
             <Link
@@ -98,7 +97,7 @@ function Home() {
             Why take it
           </p>
           <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
-            A score you can use Monday. Not a pitch.
+            A score you can use on Monday.
           </h2>
           <ul className="mt-8 divide-y divide-border border-y border-border">
             {[
@@ -108,7 +107,7 @@ function Home() {
               },
               {
                 t: "What it costs",
-                b: "Nothing. Under three minutes. Built for owners at roughly $500k–$10M — not startups, not companies with a sitting finance team.",
+                b: "Nothing. Under three minutes. Built for owners at roughly $500k-$10M, not startups or companies with a sitting finance team.",
               },
               {
                 t: "Your answers",
@@ -142,7 +141,7 @@ function Home() {
               {
                 n: "02",
                 t: "Get a Clarity Score",
-                b: "A 1–100 snapshot and a report written in the company’s language — not a generic checklist.",
+                b: "A 1-100 snapshot and a report written in the company’s language, not a generic checklist.",
               },
               {
                 n: "03",

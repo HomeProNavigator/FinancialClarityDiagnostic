@@ -28,8 +28,8 @@ function PrivacyPage() {
         <p>
           Answers and your report are stored in this browser so you can refresh
           the report page. They are not written to a public database. If you
-          submit the form, the answers are sent once to generate the narrative
-          — then discarded on the server.
+          submit the form, the answers are sent once to generate the narrative,
+          then discarded on the server.
         </p>
         <p>
           We do not sell data. We do not add optional email addresses to a

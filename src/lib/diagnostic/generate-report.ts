@@ -130,7 +130,7 @@ export const generateClarityReport = createServerFn({ method: "POST" })
               role: "user",
               content: JSON.stringify({
                 instruction:
-                  "Write a personalized 1–2 page diagnostic narrative. Score and dimensions are already computed — do not invent a new score. Findings should be plain English, concrete, and ordered most urgent first. Next steps must be actions the owner can take, not 'hire us'. Do not pitch Visari Financial.",
+                  "Write a personalized 1-2 page diagnostic narrative. Score and dimensions are already computed. Do not invent a new score. Findings should be ordinary English, concrete, and ordered most urgent first. Next steps must be actions the owner can take, not 'hire us'. Do not pitch Visari Financial. Never use em dashes or en dashes. Use commas, periods, or a hyphen for ranges (30-90).",
                 answers: {
                   company: answers.company?.trim() || null,
                   revenue: REVENUE_LABEL[answers.revenue ?? ""] ?? answers.revenue ?? null,
@@ -161,7 +161,7 @@ export const generateClarityReport = createServerFn({ method: "POST" })
                       dimension:
                         "books | cash | forecasting | systems | profitability",
                       title: "short",
-                      body: "2–4 sentences",
+                      body: "2-4 sentences",
                       severity: "gap | watch | strength",
                     },
                   ],
@@ -169,7 +169,7 @@ export const generateClarityReport = createServerFn({ method: "POST" })
                   nextSteps: [
                     {
                       title: "short",
-                      detail: "2–3 sentences",
+                      detail: "2-3 sentences",
                       timeframe: "this week | this month | this quarter",
                     },
                   ],

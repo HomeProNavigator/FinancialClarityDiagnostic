@@ -4,7 +4,7 @@ export type QuestionOption = {
   value: string;
   label: string;
   hint?: string;
-  /** 0–100 contribution toward the parent dimension */
+  /** 0-100 contribution toward the parent dimension */
   score?: number;
 };
 
@@ -30,13 +30,13 @@ export const QUESTIONS: Question[] = [
     id: "revenue",
     title: "About where is annual revenue today?",
     helper:
-      "A band is enough. This helps the report describe what “good” looks like at your stage — not to qualify you.",
+      "A band is enough. This helps the report describe what “good” looks like at your stage, not to qualify you.",
     input: "choice",
     options: [
       { value: "under_500k", label: "Under $500k" },
-      { value: "500k_1m", label: "$500k – $1M" },
-      { value: "1m_3m", label: "$1M – $3M" },
-      { value: "3m_10m", label: "$3M – $10M" },
+      { value: "500k_1m", label: "$500k - $1M" },
+      { value: "1m_3m", label: "$1M - $3M" },
+      { value: "3m_10m", label: "$3M - $10M" },
       { value: "over_10m", label: "$10M+" },
     ],
   },
@@ -60,7 +60,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "state",
     title: "Where is the business based?",
-    helper: "Optional. State is enough — this is a national diagnostic.",
+    helper: "Optional. State is enough. This is a national diagnostic.",
     optional: true,
     input: "select",
     options: US_STATES,
@@ -94,7 +94,7 @@ export const QUESTIONS: Question[] = [
       },
       {
         value: "inconsistent",
-        label: "Inconsistent — it depends on the month",
+        label: "Inconsistent. It depends on the month",
         score: 28,
       },
     ],
@@ -134,7 +134,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: "cashForward",
-    title: "How far ahead can you see cash — 30 to 90 days?",
+    title: "How far ahead can you see cash, 30 to 90 days out?",
     helper:
       "This is where growing companies usually feel the first real strain.",
     input: "choice",
@@ -252,7 +252,7 @@ export const QUESTIONS: Question[] = [
       },
       {
         value: "lag",
-        label: "Month-end is a scramble — numbers lag the business",
+        label: "Month-end is a scramble. Numbers lag the business",
       },
       {
         value: "no_owner",
@@ -276,7 +276,7 @@ export const QUESTIONS: Question[] = [
     options: [
       {
         value: "integrated",
-        label: "Integrated stack — little re-keying, reporting flows",
+        label: "Integrated stack. Little re-keying, reporting flows",
         score: 94,
       },
       {
@@ -357,9 +357,9 @@ export function optionScore(questionId: QuestionId, value?: string): number | nu
 
 export const REVENUE_LABEL: Record<string, string> = {
   under_500k: "under $500k",
-  "500k_1m": "$500k–$1M",
-  "1m_3m": "$1M–$3M",
-  "3m_10m": "$3M–$10M",
+  "500k_1m": "$500k-$1M",
+  "1m_3m": "$1M-$3M",
+  "3m_10m": "$3M-$10M",
   over_10m: "$10M+",
 };
 

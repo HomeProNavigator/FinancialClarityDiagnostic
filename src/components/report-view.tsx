@@ -28,15 +28,15 @@ function summaryMailto(report: ClarityReport) {
     report.scoreExplanation,
     "",
     "Key findings:",
-    ...report.findings.map((f) => `• ${f.title} — ${f.body}`),
+    ...report.findings.map((f) => `• ${f.title}: ${f.body}`),
     "",
     "Next steps:",
     ...report.nextSteps.map((s) => `• ${s.title} (${s.timeframe})`),
     "",
-    "If you want Visari to follow up for a free consultation, use the request on your report — they reach out. No second form.",
+    "If you want Visari to follow up for a free consultation, use the request on your report. They reach out. No second form.",
   ];
   const params = new URLSearchParams({
-    subject: `Your Financial Clarity Report — ${report.score} ${report.bandLabel}`,
+    subject: `Your Financial Clarity Report: ${report.score} ${report.bandLabel}`,
     body: lines.join("\n"),
   });
   return `mailto:?${params.toString()}`;
@@ -98,7 +98,7 @@ export function ReportView({
 
       {sample && (
         <p className="no-print mb-6 rounded-md bg-bg-warm px-4 py-3 text-sm text-muted">
-          This is a sample for a $1–3M construction company.{" "}
+          This is a sample for a $1-3M construction company.{" "}
           <Link to="/start" className="text-primary underline-offset-2 hover:underline">
             Run yours in three minutes
           </Link>

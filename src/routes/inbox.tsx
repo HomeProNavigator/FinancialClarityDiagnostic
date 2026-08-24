@@ -26,7 +26,7 @@ function InboxPage() {
           When someone requests a free consultation, Netlify stores the
           submission. Form name:{" "}
           <code className="rounded-sm bg-bg-warm px-1 text-sm">visari-intro</code>
-          . Pass that row to Visari — they follow up to schedule. Your referral
+          . Pass that row to Visari. They follow up to schedule. Your referral
           code is on every row (
           <code className="rounded-sm bg-bg-warm px-1 text-sm">ref=kyle</code>{" "}
           by default).

@@ -53,7 +53,7 @@ export function VisariLink({
   );
 }
 
-/** Homepage — for reading about Visari, not a second contact form. */
+/** Homepage. For reading about Visari, not a second contact form. */
 export function VisariSiteLink({
   placement,
   className,
@@ -90,9 +90,9 @@ export function VisariMoreLine({
 }) {
   return (
     <p className={className}>
-      For more on Visari Financial — who they are and how they work — visit{" "}
-      <VisariSiteLink placement={placement} />. Look around their site to get a
-      feel for the firm before they follow up.
+      For more on Visari Financial, visit{" "}
+      <VisariSiteLink placement={placement} />. Their site is the best way to
+      see how they work, before they follow up.
     </p>
   );
 }

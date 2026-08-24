@@ -46,7 +46,7 @@ export function dimensionList(dims: Record<DimensionId, number>): DimensionScore
   const blurbs: Record<DimensionId, (s: number) => string> = {
     books: (s) =>
       s >= 75
-        ? "Close process looks real — the question is whether the package drives decisions."
+        ? "Close process looks real. The question is whether the package drives decisions."
         : s >= 45
           ? "Books exist, but the close or the usefulness of the package is still thin."
           : "The books are not yet a decision system. They are a trailing record.",
@@ -54,7 +54,7 @@ export function dimensionList(dims: Record<DimensionId, number>): DimensionScore
       s >= 75
         ? "You can see today and a stretch of the road ahead."
         : s >= 45
-          ? "Today is roughly visible. The next 30–90 days are still a guess."
+          ? "Today is roughly visible. The next 30-90 days are still a guess."
           : "Cash is being felt, not seen. That is the usual source of tight-chest decisions.",
     forecasting: (s) =>
       s >= 75
