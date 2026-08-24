@@ -66,9 +66,12 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-subtle sm:px-8">
+        <p className="mx-auto max-w-6xl px-5 py-5 text-xs leading-relaxed text-subtle sm:px-8">
           © {new Date().getFullYear()} Financial Clarity Diagnostic. Free for
-          business owners in the United States.
+          business owners in the United States. Educational information only —
+          not personalized financial, tax, accounting, or legal advice, and not
+          an offer of advisory services. A consult with Visari Financial is
+          optional and only if you ask.
         </p>
       </div>
     </footer>

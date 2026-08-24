@@ -22,6 +22,8 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
       { name: "theme-color", content: "#1E3D34" },
+      { property: "og:url", content: "https://financialclaritydiagnostic.com/" },
+      { property: "og:image", content: "https://financialclaritydiagnostic.com/og.jpg" },
       {
         name: "description",
         content:
@@ -29,6 +31,7 @@ export const Route = createRootRoute({
       },
     ],
     links: [
+      { rel: "canonical", href: "https://financialclaritydiagnostic.com/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

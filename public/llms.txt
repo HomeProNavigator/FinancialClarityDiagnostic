@@ -1,0 +1,19 @@
+# Financial Clarity Diagnostic
+
+> Free 3-minute finance diagnostic for growing U.S. businesses. Scores books, cash visibility, forecasting, systems, and profitability. Educational tool — not personalized financial, tax, or legal advice. Optional consult with Visari Financial.
+
+- Site: https://financialclaritydiagnostic.com/
+- Partner: https://visarifinancial.com
+- Audience: U.S. owners roughly $500k–$10M who have outgrown bookkeeping
+- Not for: startups hunting a dashboard; companies with a sitting finance team
+
+## Pages
+
+- [Home](https://financialclaritydiagnostic.com/)
+- [Start the diagnostic](https://financialclaritydiagnostic.com/start)
+- [For attorneys, brokers, bankers, coaches](https://financialclaritydiagnostic.com/advisors)
+- [Guides](https://financialclaritydiagnostic.com/guides)
+- [Why cash feels tight when the P&L looks fine](https://financialclaritydiagnostic.com/guides/cash-feels-tight)
+- [Privacy](https://financialclaritydiagnostic.com/privacy)
+
+Diagnostic answers stay on the device unless the owner requests a consult. Google Search does not use llms.txt; this card is for LLM crawlers that look for it.
