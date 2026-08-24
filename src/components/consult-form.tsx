@@ -38,6 +38,66 @@ function markSent() {
   window.dispatchEvent(new Event(SENT_EVENT));
 }
 
+export function useConsultSent() {
+  const [sent, setSent] = useState(false);
+  useEffect(() => {
+    setSent(readSent());
+    const onSent = () => setSent(true);
+    window.addEventListener(SENT_EVENT, onSent);
+    return () => window.removeEventListener(SENT_EVENT, onSent);
+  }, []);
+  return sent;
+}
+
+export function ConsultThanks({
+  placement,
+  onPine = false,
+}: {
+  placement: string;
+  onPine?: boolean;
+}) {
+  return (
+    <div className={onPine ? "border-t border-primary-fg/15 pt-6" : undefined}>
+      <p
+        className={
+          onPine
+            ? "text-xs uppercase tracking-[0.18em] text-primary-fg/70"
+            : "text-xs uppercase tracking-[0.18em] text-subtle"
+        }
+      >
+        Request received
+      </p>
+      <p
+        className={
+          onPine
+            ? "mt-2 font-display text-2xl tracking-tight"
+            : "mt-2 font-display text-xl tracking-tight"
+        }
+      >
+        Visari will follow up.
+      </p>
+      <p
+        className={
+          onPine
+            ? "mt-2 text-sm leading-relaxed text-primary-fg/80"
+            : "mt-2 text-sm leading-relaxed text-muted"
+        }
+      >
+        We passed your contact details and diagnostic answers to Visari
+        Financial. Expect a note to schedule a free business consultation.
+      </p>
+      <VisariMoreLine
+        placement={`${placement}-thanks`}
+        className={
+          onPine
+            ? "mt-3 text-sm leading-relaxed text-primary-fg/80"
+            : "mt-3 text-sm leading-relaxed text-muted"
+        }
+      />
+    </div>
+  );
+}
+
 export function ConsultForm({
   placement,
   note = false,
@@ -45,6 +105,7 @@ export function ConsultForm({
   placement: string;
   note?: boolean;
 }) {
+  const sent = useConsultSent();
   const ref = useRefCode();
   const answers = useDiagnosticStore((s) => s.answers);
   const packet = buildVisariPacket(answers);
@@ -56,14 +117,6 @@ export function ConsultForm({
   const [noteText, setNoteText] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  useEffect(() => {
-    setSent(readSent());
-    const onSent = () => setSent(true);
-    window.addEventListener(SENT_EVENT, onSent);
-    return () => window.removeEventListener(SENT_EVENT, onSent);
-  }, []);
 
   useEffect(() => {
     if (answers.company) setCompany((c) => c || answers.company || "");
@@ -93,29 +146,9 @@ export function ConsultForm({
     }
     setBusy(false);
     markSent();
-    setSent(true);
   }
 
-  if (sent) {
-    return (
-      <div className="rounded-xl bg-bg-warm px-5 py-6 sm:px-6">
-        <p className="text-xs uppercase tracking-[0.18em] text-subtle">
-          Request received
-        </p>
-        <p className="mt-2 font-display text-xl tracking-tight">
-          Visari will follow up.
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-muted">
-          We passed your contact details and diagnostic answers to Visari
-          Financial. Expect a note to schedule a free business consultation.
-        </p>
-        <VisariMoreLine
-          placement={`${placement}-thanks`}
-          className="mt-3 text-sm leading-relaxed text-muted"
-        />
-      </div>
-    );
-  }
+  if (sent) return null;
 
   return (
     <form

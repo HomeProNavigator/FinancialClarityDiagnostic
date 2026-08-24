@@ -1,5 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { ConsultForm } from "@/components/consult-form";
+import {
+  ConsultForm,
+  ConsultThanks,
+  useConsultSent,
+} from "@/components/consult-form";
 import { VisariMoreLine } from "@/components/visari-link";
 
 const STRENGTHS = [
@@ -30,6 +34,7 @@ export function VisariPartner({
   variant?: "page" | "report" | "footer";
   sample?: boolean;
 }) {
+  const sent = useConsultSent();
   const Heading = variant === "page" ? "h1" : "h2";
   const headingClass =
     variant === "page"
@@ -65,10 +70,12 @@ export function VisariPartner({
         </ul>
       )}
 
-      <VisariMoreLine
-        placement={`${placement}-site`}
-        className="mt-6 max-w-2xl text-sm leading-relaxed text-primary-fg/80"
-      />
+      {!sent && (
+        <VisariMoreLine
+          placement={`${placement}-site`}
+          className="mt-6 max-w-2xl text-sm leading-relaxed text-primary-fg/80"
+        />
+      )}
 
       <div className="mt-8 no-print">
         {sample ? (
@@ -83,6 +90,8 @@ export function VisariPartner({
             to request a free consultation — we pass it to Visari, they follow
             up.
           </p>
+        ) : sent ? (
+          <ConsultThanks placement={placement} onPine />
         ) : (
           <div className="rounded-lg bg-bg px-5 py-6 text-fg shadow-card sm:px-6">
             <p className="text-sm leading-relaxed text-muted">
