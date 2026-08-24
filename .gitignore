@@ -1,0 +1,26 @@
+node_modules
+dist
+.output
+.vercel
+.netlify
+.nitro
+.tanstack
+.cache
+coverage
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.node_modules.lock
+
+# Local preview / sandbox
+screenshots
+artifacts
+attachments
+startup.sh
+AGENTS.md
+AGENTS.project.md
+.grok/skills
+.grok/references
+.grok/status
