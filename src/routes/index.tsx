@@ -1,13 +1,5 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  BookOpen,
-  Eye,
-  LineChart,
-  Layers,
-  PiggyBank,
-} from "lucide-react";
-import { HeroGauge } from "@/components/hero-gauge";
+import { ArrowRight } from "lucide-react";
 import { GUIDES } from "@/lib/guides";
 import { pageHead } from "@/lib/seo";
 import { buildSampleReport } from "@/lib/diagnostic/fallback-report";
@@ -28,27 +20,22 @@ export const Route = createFileRoute("/")({
 
 const SIGNALS = [
   {
-    icon: BookOpen,
     title: "Books quality",
     body: "Whether the close is real, or a tax-season reconstruction.",
   },
   {
-    icon: Eye,
     title: "Cash visibility",
     body: "Today’s position — and whether you can see 30 to 90 days out.",
   },
   {
-    icon: LineChart,
     title: "Forecasting readiness",
     body: "A living plan, or an annual binder nobody opens.",
   },
   {
-    icon: Layers,
     title: "Systems & automation",
     body: "A source of truth, or exports, inboxes, and side sheets.",
   },
   {
-    icon: PiggyBank,
     title: "Profitability signal",
     body: "Which work actually pays — not just how busy the company is.",
   },
@@ -84,75 +71,53 @@ function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="relative overflow-hidden">
-        <div
-          className="pointer-events-none absolute inset-0 paper-grain opacity-[0.07]"
-          aria-hidden="true"
-        />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <p className="rise-in text-xs uppercase tracking-[0.18em] text-subtle">
-              Free · United States · Under 3 minutes
-            </p>
-            <h1 className="rise-in rise-in-1 mt-4 font-display text-[2.15rem] leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.15rem]">
-              Financial clarity for growing businesses.
-            </h1>
-            <p className="rise-in rise-in-2 mt-5 max-w-xl text-[1.07rem] leading-relaxed text-muted">
-              A short diagnostic that shows whether your finance function is
-              keeping up with the company you’ve already built — books, cash,
-              forecasting, systems, and profit — then writes you a plain-English
-              report.
-            </p>
-            <div className="rise-in rise-in-3 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                to="/start"
-                className="inline-flex h-14 items-center justify-center rounded-lg bg-primary px-6 text-base font-medium text-primary-fg shadow-card hover:bg-primary-soft"
-              >
-                Get my free Financial Clarity Report
-              </Link>
-              <button
-                type="button"
-                onClick={openSample}
-                className="inline-flex h-14 items-center justify-center px-2 text-sm text-muted hover:text-fg"
-              >
-                See a sample report
-                <ArrowRight className="ml-1 size-4" strokeWidth={1.75} />
-              </button>
-            </div>
-            <p className="rise-in rise-in-4 mt-6 text-sm text-subtle">
-              Used by growing business owners across the United States. Answers
-              stay on this device. We don’t sell your data.
-            </p>
+      <section>
+        <div className="mx-auto max-w-2xl px-5 pb-14 pt-10 sm:px-8 sm:pb-20 sm:pt-16">
+          <p className="text-xs uppercase tracking-[0.18em] text-subtle">
+            Free · United States · Under 3 minutes
+          </p>
+          <h1 className="mt-4 font-display text-[2.15rem] leading-[1.12] tracking-tight sm:text-5xl">
+            Financial clarity for growing businesses.
+          </h1>
+          <p className="mt-5 text-[1.07rem] leading-relaxed text-muted">
+            A short diagnostic that shows whether your finance function is
+            keeping up with the company you’ve already built — then writes you a
+            plain-English report.
+          </p>
+          <div className="mt-8">
+            <Link
+              to="/start"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 text-[0.95rem] font-medium text-primary-fg shadow-card hover:bg-primary-soft"
+            >
+              Get my free report
+            </Link>
           </div>
-          <div className="rise-in rise-in-2">
-            <HeroGauge />
-          </div>
+          <p className="mt-5 text-sm text-muted">
+            <button
+              type="button"
+              onClick={openSample}
+              className="text-fg underline-offset-2 hover:underline"
+            >
+              See a sample
+            </button>
+            <span className="text-subtle"> · Answers stay on this device.</span>
+          </p>
         </div>
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
           <p className="text-xs uppercase tracking-[0.18em] text-subtle">
             What the report covers
           </p>
-          <h2 className="mt-3 max-w-xl font-display text-3xl tracking-tight sm:text-4xl">
-            Five signals. One score. Next steps you can actually take.
+          <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
+            Five signals. One score. Next steps you can take.
           </h2>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-8 divide-y divide-border border-y border-border">
             {SIGNALS.map((s) => (
-              <li
-                key={s.title}
-                className="rounded-xl bg-surface px-5 py-6 shadow-card"
-              >
-                <s.icon
-                  className="size-5 text-primary"
-                  strokeWidth={1.6}
-                  aria-hidden="true"
-                />
-                <h3 className="mt-4 font-display text-lg tracking-tight">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+              <li key={s.title} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-8 sm:py-5">
+                <h3 className="text-sm font-medium">{s.title}</h3>
+                <p className="text-sm leading-relaxed text-muted">{s.body}</p>
               </li>
             ))}
           </ul>
@@ -160,16 +125,16 @@ function Home() {
       </section>
 
       <section className="border-t border-border bg-bg-warm/40">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
           <p className="text-xs uppercase tracking-[0.18em] text-subtle">
             How it works
           </p>
-          <ol className="mt-8 grid gap-8 md:grid-cols-3">
+          <ol className="mt-8 space-y-8">
             {[
               {
                 n: "01",
-                t: "Answer ten questions",
-                b: "Revenue band, books, cash, reporting, forecast, systems, profit. Optional industry and state. Under three minutes if you are honest.",
+                t: "Answer nine questions",
+                b: "Books, cash, reporting, forecast, systems, profit. Industry and state if you want. Under three minutes if you are honest.",
               },
               {
                 n: "02",
@@ -179,15 +144,15 @@ function Home() {
               {
                 n: "03",
                 t: "Leave with an order of operations",
-                b: "Three to five next steps, what “good” looks like at your stage, and a partner if you want the systems installed.",
+                b: "Next steps, what “good” looks like at your stage, and a partner if you want the systems installed.",
               },
             ].map((s) => (
-              <li key={s.n}>
-                <p className="font-display text-3xl text-primary/40">{s.n}</p>
-                <h3 className="mt-3 font-display text-2xl tracking-tight">{s.t}</h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">
-                  {s.b}
-                </p>
+              <li key={s.n} className="grid grid-cols-[2.5rem_1fr] gap-4">
+                <p className="font-display text-xl text-primary/45">{s.n}</p>
+                <div>
+                  <h3 className="font-display text-xl tracking-tight">{s.t}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{s.b}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -195,15 +160,14 @@ function Home() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
           <p className="text-xs uppercase tracking-[0.18em] text-subtle">
             Who this is for
           </p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight">
-            Owners whose companies have grown past the point where basic
-            bookkeeping is enough.
+          <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
+            Owners whose companies have grown past basic bookkeeping.
           </h2>
-          <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          <ul className="mt-8 divide-y divide-border border-y border-border">
             {[
               {
                 t: "The owner",
@@ -211,16 +175,16 @@ function Home() {
               },
               {
                 t: "The builder",
-                b: "You are focused on what comes next — a hire, a location, a line of work — and you need to know if cash and margin can carry it.",
+                b: "A hire, a location, a line of work — and you need to know if cash and margin can carry it.",
               },
               {
                 t: "The operator",
                 b: "A real business, real complexity. You want a close you trust and a picture that does not arrive after the meeting.",
               },
             ].map((c) => (
-              <li key={c.t} className="rounded-xl bg-surface px-6 py-7 shadow-card">
-                <h3 className="font-display text-xl tracking-tight">{c.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{c.b}</p>
+              <li key={c.t} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-8 sm:py-5">
+                <h3 className="text-sm font-medium">{c.t}</h3>
+                <p className="text-sm leading-relaxed text-muted">{c.b}</p>
               </li>
             ))}
           </ul>
@@ -228,62 +192,53 @@ function Home() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-subtle">
-                Field notes
-              </p>
-              <h2 className="mt-3 font-display text-3xl tracking-tight">
-                Questions owners actually ask
-              </h2>
-            </div>
-            <Link
-              to="/guides"
-              className="hidden text-sm text-muted hover:text-fg sm:inline-flex"
-            >
-              All guides
-              <ArrowRight className="ml-1 size-4" />
-            </Link>
-          </div>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
+          <p className="text-xs uppercase tracking-[0.18em] text-subtle">
+            Field notes
+          </p>
+          <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">
+            Questions owners actually ask
+          </h2>
+          <ul className="mt-8 divide-y divide-border border-y border-border">
             {GUIDES.slice(0, 4).map((g) => (
               <li key={g.slug}>
                 <Link
                   to="/guides/$slug"
                   params={{ slug: g.slug }}
-                  className="block rounded-xl bg-surface px-6 py-6 shadow-card hover:shadow-card-hover"
+                  className="block py-4 hover:text-primary sm:py-5"
                 >
                   <p className="text-xs uppercase tracking-[0.16em] text-subtle">
                     {g.kicker}
                   </p>
-                  <h3 className="mt-2 font-display text-xl tracking-tight">
-                    {g.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {g.description}
-                  </p>
+                  <h3 className="mt-1 font-display text-lg tracking-tight">{g.title}</h3>
                 </Link>
               </li>
             ))}
           </ul>
+          <Link
+            to="/guides"
+            className="mt-6 inline-flex items-center text-sm text-muted hover:text-fg"
+          >
+            All guides
+            <ArrowRight className="ml-1 size-4" />
+          </Link>
         </div>
       </section>
 
       <section className="border-t border-border bg-primary text-primary-fg">
-        <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-20">
-          <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
+        <div className="mx-auto max-w-2xl px-5 py-14 sm:px-8 sm:py-16">
+          <h2 className="font-display text-2xl tracking-tight sm:text-3xl">
             Is your finance function keeping up?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-primary-fg/75">
-            Three minutes. A score. A report you can take to Monday. The tool is
-            free and useful on its own.
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-primary-fg/75">
+            Three minutes. A score. A report you can take to Monday. Free, and
+            useful on its own.
           </p>
           <Link
             to="/start"
-            className="mt-8 inline-flex h-14 items-center justify-center rounded-lg bg-primary-fg px-6 text-base font-medium text-primary hover:bg-bg"
+            className="mt-7 inline-flex h-12 items-center justify-center rounded-md bg-primary-fg px-5 text-[0.95rem] font-medium text-primary hover:bg-bg"
           >
-            Get my free Financial Clarity Report
+            Get my free report
           </Link>
         </div>
       </section>
