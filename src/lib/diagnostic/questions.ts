@@ -335,21 +335,12 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
-    id: "firstName",
-    title: "Add a first name if you want the report addressed to you.",
-    helper: "Optional. Stored on this device only.",
+    id: "company",
+    title: "What is the company called?",
+    helper: "Optional. We’ll address the report to the business if you add it.",
     optional: true,
     input: "text",
-    placeholder: "First name",
-  },
-  {
-    id: "email",
-    title: "Want a copy you can forward to yourself?",
-    helper:
-      "Optional. We don’t add you to a list. Use this only if you want to open a message with your summary.",
-    optional: true,
-    input: "email",
-    placeholder: "you@company.com",
+    placeholder: "Company name",
   },
 ];
 

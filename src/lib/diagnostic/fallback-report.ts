@@ -26,8 +26,8 @@ const STAGE: Record<string, string> = {
 };
 
 function nameOf(answers: Answers) {
-  const n = answers.firstName?.trim();
-  return n ? n.split(/\s+/)[0] : null;
+  const n = answers.company?.trim();
+  return n ? n.replace(/\s+/g, " ").slice(0, 60) : null;
 }
 
 function you(answers: Answers) {
@@ -297,21 +297,21 @@ function headlineFor(score: number, answers: Answers): string {
   const n = nameOf(answers);
   if (score >= 85) {
     return n
-      ? `${n}, the foundation is here. The work now is to use it.`
+      ? `${n} has a real foundation. The work now is to use it.`
       : "The foundation is here. The work now is to use it.";
   }
   if (score >= 65) {
     return n
-      ? `${n}, you can see more than most companies at this stage — and the remaining gaps are specific.`
+      ? `${n} can see more than most companies at this stage — and the remaining gaps are specific.`
       : "You can see more than most companies at this stage — and the remaining gaps are specific.";
   }
   if (score >= 40) {
     return n
-      ? `${n}, the business has outgrown the way finance is currently run.`
+      ? `${n} has outgrown the way finance is currently run.`
       : "The business has outgrown the way finance is currently run.";
   }
   return n
-    ? `${n}, finance is still a rear-view mirror. The company is already driving.`
+    ? `At ${n}, finance is still a rear-view mirror. The company is already driving.`
     : "Finance is still a rear-view mirror. The company is already driving.";
 }
 
@@ -365,11 +365,11 @@ export function buildSampleReport(): ClarityReport {
     friction: "cash_tight",
     systems: "spreadsheet_truth",
     profitability: "fuzzy",
-    firstName: "Alex",
+    company: "Northline Construction",
   };
   const report = buildFallbackReport(answers);
   report.source = "sample";
   report.headline =
-    "Alex, the business has outgrown the way finance is currently run.";
+    "Northline Construction has outgrown the way finance is currently run.";
   return report;
 }

@@ -132,7 +132,7 @@ export const generateClarityReport = createServerFn({ method: "POST" })
                 instruction:
                   "Write a personalized 1–2 page diagnostic narrative. Score and dimensions are already computed — do not invent a new score. Findings should be plain English, concrete, and ordered most urgent first. Next steps must be actions the owner can take, not 'hire us'. Do not pitch Visari Financial.",
                 answers: {
-                  firstName: answers.firstName?.trim() || null,
+                  company: answers.company?.trim() || null,
                   revenue: REVENUE_LABEL[answers.revenue ?? ""] ?? answers.revenue ?? null,
                   industry:
                     INDUSTRY_LABEL[answers.industry ?? ""] ?? answers.industry ?? null,

@@ -11,6 +11,7 @@ import {
 } from "@/lib/diagnostic/netlify-form";
 import { visariUrl } from "@/lib/diagnostic/referral";
 import { useDiagnosticStore } from "@/lib/diagnostic/store";
+import { buildVisariPacket } from "@/lib/diagnostic/visari-packet";
 import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/connect")({
@@ -47,10 +48,11 @@ function ConnectPage() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  const packet = buildVisariPacket(answers, report);
+
   useEffect(() => {
-    if (answers.firstName) setName((n) => n || answers.firstName || "");
-    if (answers.email) setEmail((e) => e || answers.email || "");
-  }, [answers.firstName, answers.email]);
+    if (answers.company) setCompany((c) => c || answers.company || "");
+  }, [answers.company]);
 
   function goToVisari() {
     window.location.assign(
@@ -98,8 +100,9 @@ function ConnectPage() {
       </h1>
       <p className="mt-4 text-[1.05rem] leading-relaxed text-muted">
         This is how the conversation is credited to the partner who sent you.
-        After you submit, you go straight to Visari’s contact page with the
-        referral already on the link.
+        After you submit, the answers and report travel with the introduction so
+        Visari does not have to reconstruct the conversation. Then you go
+        straight to their contact page with the referral already on the link.
       </p>
 
       <form
@@ -120,9 +123,13 @@ function ConnectPage() {
         </p>
         <input type="hidden" name="placement" value={placement} />
         <input type="hidden" name="ref" value={ref} />
-        <input type="hidden" name="score" value={report?.score ?? ""} />
+        <input type="hidden" name="score" value={packet.score} />
+        <input type="hidden" name="band" value={packet.band} />
+        <input type="hidden" name="headline" value={packet.headline} />
         <input type="hidden" name="revenue" value={answers.revenue ?? ""} />
         <input type="hidden" name="industry" value={answers.industry ?? ""} />
+        <textarea name="answers_json" hidden readOnly value={packet.answers_json} />
+        <textarea name="report_summary" hidden readOnly value={packet.report_summary} />
 
         <label className="block">
           <span className="text-sm font-medium">Name</span>
@@ -201,8 +208,8 @@ function ConnectPage() {
           )}
         </div>
         <p className="text-xs leading-relaxed text-subtle">
-          Submitting shares name, email, and your note with Visari Financial and
-          the referring partner. The diagnostic itself stays on this device.{" "}
+          Submitting shares name, email, the diagnostic answers, and the report
+          with Visari Financial and the referring partner.{" "}
           <Link to="/privacy" className="underline-offset-2 hover:underline">
             Privacy
           </Link>

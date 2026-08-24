@@ -200,7 +200,7 @@ export function DiagnosticForm() {
           <input
             type={q.input}
             inputMode={q.input === "email" ? "email" : "text"}
-            autoComplete={q.input === "email" ? "email" : "given-name"}
+            autoComplete={q.id === "company" ? "organization" : "on"}
             placeholder={q.placeholder}
             value={value}
             onChange={(e) => {

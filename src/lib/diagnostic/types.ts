@@ -29,8 +29,7 @@ export type QuestionId =
   | "friction"
   | "systems"
   | "profitability"
-  | "firstName"
-  | "email";
+  | "company";
 
 export type Answers = Partial<Record<QuestionId, string>>;
 

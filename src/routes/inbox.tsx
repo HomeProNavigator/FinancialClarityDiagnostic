@@ -30,7 +30,7 @@ function InboxPage() {
           <code className="rounded-sm bg-bg-warm px-1 text-sm">ref=kyle</code>{" "}
           (or whatever code brought them here).
         </p>
-        <p>Each row includes name, email, company, note, referral code, and placement.</p>
+        <p>Each row includes name, email, company, note, referral code, the Clarity Score, every diagnostic answer, and the written report.</p>
         <ol className="list-decimal space-y-3 pl-5">
           <li>
             Open{" "}

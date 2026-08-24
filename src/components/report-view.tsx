@@ -22,7 +22,6 @@ const SEV: Record<ReportFinding["severity"], { label: string; className: string 
 };
 
 function summaryMailto(report: ClarityReport, ref: string | null) {
-  const email = report.answers.email?.trim();
   const lines = [
     report.headline,
     "",
@@ -42,9 +41,7 @@ function summaryMailto(report: ClarityReport, ref: string | null) {
     subject: `Your Financial Clarity Report — ${report.score} ${report.bandLabel}`,
     body: lines.join("\n"),
   });
-  return email
-    ? `mailto:${encodeURIComponent(email)}?${params.toString()}`
-    : `mailto:?${params.toString()}`;
+  return `mailto:?${params.toString()}`;
 }
 
 export function ReportView({
