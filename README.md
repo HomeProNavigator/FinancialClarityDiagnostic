@@ -21,7 +21,7 @@ Requests are tagged to the referring partner (`ref=kyle` by default).
 3. After deploy, enable the form:
    - Netlify → this site → **Forms** → **visari-intro**
    - Turn on **email notifications** so every request is emailed to you
-4. Share as `https://financialclaritydiagnostic.netlify.app/?ref=kyle`
+4. Share as `https://financialclaritydiagnostic.com/?ref=kyle`
 
 If the site is blank after the first deploy, switch publish directory to `dist/client` and retry.
 

@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/</loc>
+    <loc>https://financialclaritydiagnostic.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/start</loc>
+    <loc>https://financialclaritydiagnostic.com/start</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/advisors</loc>
+    <loc>https://financialclaritydiagnostic.com/advisors</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/guides</loc>
+    <loc>https://financialclaritydiagnostic.com/guides</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/guides/cash-feels-tight</loc>
+    <loc>https://financialclaritydiagnostic.com/guides/cash-feels-tight</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/guides/finance-function-lagging</loc>
+    <loc>https://financialclaritydiagnostic.com/guides/finance-function-lagging</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/guides/forecasting-readiness</loc>
+    <loc>https://financialclaritydiagnostic.com/guides/forecasting-readiness</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/guides/beyond-bookkeeping</loc>
+    <loc>https://financialclaritydiagnostic.com/guides/beyond-bookkeeping</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://financialclaritydiagnostic.netlify.app/privacy</loc>
+    <loc>https://financialclaritydiagnostic.com/guides/cash-visibility</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://financialclaritydiagnostic.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { pageHead, SITE_URL } from "@/lib/seo";
+import { pageHead, SITE_URL, ADVISOR_FAQS, faqPage } from "@/lib/seo";
 
 export const Route = createFileRoute("/advisors")({
   head: () =>
@@ -32,6 +32,15 @@ function AdvisorsPage() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-5 py-14 sm:px-8 sm:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            ...faqPage(ADVISOR_FAQS),
+          }),
+        }}
+      />
       <p className="text-xs uppercase tracking-[0.18em] text-subtle">
         For attorneys, brokers, bankers, and coaches
       </p>

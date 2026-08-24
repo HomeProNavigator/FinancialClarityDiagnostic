@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { ReportExcerpt } from "@/components/report-excerpt";
 import { VisariSiteLink } from "@/components/visari-link";
 import { GUIDES } from "@/lib/guides";
-import { pageHead } from "@/lib/seo";
+import { pageHead, homeJsonLd } from "@/lib/seo";
 import { buildSampleReport } from "@/lib/diagnostic/fallback-report";
 import { useDiagnosticStore } from "@/lib/diagnostic/store";
 import { track } from "@/lib/diagnostic/analytics";
@@ -19,6 +19,25 @@ export const Route = createFileRoute("/")({
     }),
   component: Home,
 });
+
+const HOME_FAQS = [
+  {
+    q: "Is this a sales trap?",
+    a: "The report is complete without talking to anyone. A consult is optional, and only if you ask.",
+  },
+  {
+    q: "Who sees my answers?",
+    a: "You. If you request a consult, Visari sees your contact details and the questions you answered.",
+  },
+  {
+    q: "Can my attorney, banker, or broker send this?",
+    a: "Yes. They keep their engagement. You get a finance read they should not have to improvise.",
+  },
+  {
+    q: "Do I have to switch accountants to use it?",
+    a: "No. Take the diagnostic either way. Installing a finance function is a later decision.",
+  },
+];
 
 const SIGNALS = [
   {
@@ -53,19 +72,7 @@ function Home() {
     void navigate({ to: "/report" });
   }
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Financial Clarity Diagnostic",
-    applicationCategory: "BusinessApplication",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    audience: {
-      "@type": "Audience",
-      audienceType: "Growing business owners in the United States",
-    },
-    description:
-      "Free diagnostic that scores books, cash visibility, forecasting, systems, and profitability for growing U.S. businesses.",
-  };
+  const jsonLd = homeJsonLd(HOME_FAQS);
 
   return (
     <main>
@@ -296,24 +303,7 @@ function Home() {
             </Link>
           </div>
           <ul className="divide-y divide-border border-y border-border">
-            {[
-              {
-                q: "Is this a sales trap?",
-                a: "The report is complete without talking to anyone. A consult is optional, and only if you ask.",
-              },
-              {
-                q: "Who sees my answers?",
-                a: "You. If you request a consult, Visari sees your contact details and the questions you answered.",
-              },
-              {
-                q: "Can my attorney, banker, or broker send this?",
-                a: "Yes. They keep their engagement. You get a finance read they should not have to improvise.",
-              },
-              {
-                q: "Do I have to switch accountants to use it?",
-                a: "No. Take the diagnostic either way. Installing a finance function is a later decision.",
-              },
-            ].map((row) => (
+            {HOME_FAQS.map((row) => (
               <li key={row.q} className="py-4">
                 <h3 className="text-sm font-medium">{row.q}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{row.a}</p>
