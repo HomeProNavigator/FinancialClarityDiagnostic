@@ -39,10 +39,9 @@ function PrivacyPage() {
         <p>
           If you choose “Start the conversation,” you land on a short
           introduction form (name and email, optional company and note). That
-          record is stored so Visari Financial and the referring partner can
-          follow up, then you are sent to Visari’s contact page with the
-          referral tagged on the URL. Click-throughs onto that form are counted
-          even if you do not finish it.
+          record is stored as a Netlify form submission so Visari Financial and
+          the referring partner can follow up, then you are sent to Visari’s
+          contact page with the referral tagged on the URL.
         </p>
         <p>
           If you arrived with a referral code in the URL (

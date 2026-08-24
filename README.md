@@ -9,31 +9,28 @@ Conversations started from this tool are tagged to the referring partner (`ref=k
 - Landing page and SEO guides
 - Multi-step diagnostic (under 3 minutes)
 - Personalized report with print/PDF and email summary
-- Introduction form before Visari, so named leads are captured
-- Partner inbox of click-throughs and introductions
+- Introduction form before Visari
+- Netlify Forms capture of every introduction, then an automatic handoff to Visari’s contact page
 
 ## Deploy on Netlify
 
-1. In Netlify, **Add new site → Import an existing project** and select this GitHub repo.
-2. Build settings (also in `netlify.toml`):
+1. Import this GitHub repo. `netlify.toml` already sets:
    - **Build command:** `npm run build`
-   - **Publish directory:** `dist`  
-     If the site is blank after the first deploy, switch publish to `dist/client` and retry.
-3. **Environment variables** (Site configuration → Environment variables):
+   - **Publish directory:** `dist`
+2. Optional environment variable: `XAI_API_KEY` (Grok-written reports; a local writer is used if omitted).
+3. After deploy, enable the form:
+   - Netlify → this site → **Forms** → **visari-intro**
+   - Turn on **email notifications** so every introduction is emailed to you
+4. Share as `https://financialclaritydiagnostic.netlify.app/?ref=kyle`
 
-   | Variable | Required | Purpose |
-   |---|---|---|
-   | `DATABASE_URL` | Yes, for the inbox | Postgres connection string (Neon free tier works). Without it, introductions reset on every request. |
-   | `XAI_API_KEY` | No | Uses Grok for the report narrative. If omitted, a local writer still produces a full report. |
-   | `VITE_AUTH_ENABLED` | No | Leave `false`. |
+If the site is blank after the first deploy, switch publish directory to `dist/client` and retry.
 
-4. Deploy. After Neon is connected, the first build runs `db:migrate` and creates the inbox tables.
+### How credit works
 
-### Partner inbox
-
-After deploy, open `/inbox` and use access code **`kyle-visari-clarity`**.
-
-Share the diagnostic as `https://your-site.netlify.app/?ref=kyle` (or another partner code). That code rides through to Visari’s contact URL.
+1. Owner submits name + email on `/connect`
+2. Netlify records the row (name, email, company, note, `ref`, placement)
+3. They are redirected to `visarifinancial.com/contact` with `ref=kyle` and UTM tags
+4. You match Netlify’s form list to Visari conversations by email
 
 ## Local
 
@@ -42,8 +39,6 @@ npm install
 npm run dev
 ```
 
-The app serves on port 8080. Without `DATABASE_URL`, a local in-memory Postgres (PGLite) is used.
-
 ```bash
 npm run typecheck
 npm run build
@@ -51,4 +46,4 @@ npm run build
 
 ## Privacy
 
-Diagnostic answers stay in the browser unless the owner submits the Visari introduction form. That form stores name, email, optional company/note, and the referral code so Visari and the referring partner can follow up.
+Diagnostic answers stay in the browser unless the owner submits the Visari introduction form. That form is stored by Netlify Forms and shared with the referring partner.

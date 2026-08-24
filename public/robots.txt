@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /inbox
 Disallow: /connect
+Disallow: /visari-intro.html

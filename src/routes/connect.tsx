@@ -3,8 +3,13 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRefCode } from "@/components/visari-link";
-import { logHandoffEvent, submitIntroduction } from "@/lib/diagnostic/handoff";
-import { DEFAULT_REF, captureReferralFromWindow, visariUrl } from "@/lib/diagnostic/referral";
+import {
+  NETLIFY_FORM_ACTION,
+  NETLIFY_FORM_NAME,
+  isNetlifyHost,
+  submitNetlifyForm,
+} from "@/lib/diagnostic/netlify-form";
+import { visariUrl } from "@/lib/diagnostic/referral";
 import { useDiagnosticStore } from "@/lib/diagnostic/store";
 import { pageHead } from "@/lib/seo";
 
@@ -47,64 +52,40 @@ function ConnectPage() {
     if (answers.email) setEmail((e) => e || answers.email || "");
   }, [answers.firstName, answers.email]);
 
-  useEffect(() => {
-    const key = `fcd_open_${placement}`;
-    try {
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, "1");
-    } catch {
-      /* private mode */
-    }
-    const code = captureReferralFromWindow() ?? DEFAULT_REF;
-    void logHandoffEvent({
-      data: { kind: "opened", placement, refCode: code },
-    });
-  }, [placement]);
+  function goToVisari() {
+    window.location.assign(
+      visariUrl(
+        "/contact",
+        {
+          utm_content: placement,
+          name: name.trim(),
+          email: email.trim(),
+        },
+        ref,
+      ),
+    );
+  }
 
-  async function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     setBusy(true);
+    const form = e.currentTarget;
     try {
-      const result = await submitIntroduction({
-        data: {
-          name,
-          email,
-          company,
-          note,
-          placement,
-          refCode: ref,
-          score: report?.score ?? null,
-          revenueBand: answers.revenue ?? "",
-          industry: answers.industry ?? "",
-        },
-      });
-      if (!result.ok) {
-        setError(result.error);
+      const recorded = await submitNetlifyForm(form);
+      if (!recorded && isNetlifyHost(window.location.hostname)) {
+        setError("The introduction didn’t save just then.");
         setBusy(false);
         return;
       }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save the introduction.");
-      setBusy(false);
-      return;
+    } catch {
+      if (isNetlifyHost(window.location.hostname)) {
+        setError("The introduction didn’t save just then.");
+        setBusy(false);
+        return;
+      }
     }
-    const dest = visariUrl(
-      "/contact",
-      {
-        utm_content: placement,
-        name: name.trim(),
-        email: email.trim(),
-      },
-      ref,
-    );
-    window.location.assign(dest);
-  }
-
-  function skipToVisari() {
-    window.location.assign(
-      visariUrl("/contact", { utm_content: `${placement}-skip` }, ref),
-    );
+    goToVisari();
   }
 
   return (
@@ -117,15 +98,37 @@ function ConnectPage() {
       </h1>
       <p className="mt-4 text-[1.05rem] leading-relaxed text-muted">
         This is how the conversation is credited to the partner who sent you.
-        Visari sees it on their contact page; we keep a copy so nobody has to
-        reconstruct who clicked.
+        After you submit, you go straight to Visari’s contact page with the
+        referral already on the link.
       </p>
 
-      <form onSubmit={(e) => void onSubmit(e)} className="mt-10 space-y-5">
+      <form
+        name={NETLIFY_FORM_NAME}
+        method="POST"
+        action={NETLIFY_FORM_ACTION}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={(e) => void onSubmit(e)}
+        className="mt-10 space-y-5"
+      >
+        <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
+        <p className="hidden">
+          <label>
+            Don’t fill this in
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
+        </p>
+        <input type="hidden" name="placement" value={placement} />
+        <input type="hidden" name="ref" value={ref} />
+        <input type="hidden" name="score" value={report?.score ?? ""} />
+        <input type="hidden" name="revenue" value={answers.revenue ?? ""} />
+        <input type="hidden" name="industry" value={answers.industry ?? ""} />
+
         <label className="block">
           <span className="text-sm font-medium">Name</span>
           <input
             className={FIELD}
+            name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoComplete="name"
@@ -139,6 +142,7 @@ function ConnectPage() {
           <input
             className={FIELD}
             type="email"
+            name="email"
             inputMode="email"
             autoComplete="email"
             value={email}
@@ -153,6 +157,7 @@ function ConnectPage() {
           </span>
           <input
             className={FIELD}
+            name="company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
             autoComplete="organization"
@@ -166,6 +171,7 @@ function ConnectPage() {
           </span>
           <textarea
             className="mt-1.5 min-h-[7rem] w-full rounded-md bg-surface px-4 py-3 text-base shadow-card placeholder:text-subtle focus:outline-none focus:ring-2 focus:ring-primary/30"
+            name="note"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             maxLength={600}
@@ -187,7 +193,7 @@ function ConnectPage() {
           {error && (
             <button
               type="button"
-              onClick={skipToVisari}
+              onClick={goToVisari}
               className="text-sm text-muted underline-offset-2 hover:text-fg hover:underline"
             >
               Skip and go to Visari anyway
@@ -196,8 +202,7 @@ function ConnectPage() {
         </div>
         <p className="text-xs leading-relaxed text-subtle">
           Submitting shares name, email, and your note with Visari Financial and
-          the referring partner. The diagnostic itself is still private unless
-          you already chose to include it.{" "}
+          the referring partner. The diagnostic itself stays on this device.{" "}
           <Link to="/privacy" className="underline-offset-2 hover:underline">
             Privacy
           </Link>
