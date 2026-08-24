@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Download, Mail, Printer } from "lucide-react";
 import { ScoreRing } from "@/components/score-ring";
-import { VisariCta } from "@/components/visari-cta";
+import { VisariPartner } from "@/components/visari-partner";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/diagnostic/analytics";
 import {
@@ -134,6 +134,20 @@ export function ReportView({
         </div>
       </section>
 
+      <div className="mt-14 no-print">
+        <VisariPartner placement="report-top" variant="report" sample={sample} />
+      </div>
+
+      <section className="print-break mt-12 hidden print:block">
+        <h2 className="font-display text-2xl tracking-tight">Why Visari</h2>
+        <p className="mt-3 leading-relaxed text-fg/90">
+          This diagnostic names whether the finance function is keeping up.
+          Visari Financial is the partner we send owners to for the close, the
+          cash view, the systems, and a seat in the decisions. Request a free
+          consultation from the online report — they follow up.
+        </p>
+      </section>
+
       <section className="print-break mt-12">
         <h2 className="font-display text-2xl tracking-tight">Five signals</h2>
         <ul className="mt-5 space-y-4">
@@ -213,8 +227,8 @@ export function ReportView({
         {report.closingNote}
       </p>
 
-      <div className="mt-14">
-        <VisariCta placement="report-bottom" />
+      <div className="mt-14 no-print">
+        <VisariPartner placement="report-bottom" variant="footer" sample={sample} />
       </div>
 
       <div className="no-print mt-8">
