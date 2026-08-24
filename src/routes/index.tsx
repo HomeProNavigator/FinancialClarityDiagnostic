@@ -51,43 +51,69 @@ function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <section>
-        <div className="mx-auto max-w-2xl px-5 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-16">
-          <p className="text-xs uppercase tracking-[0.18em] text-subtle">
-            Free · United States · Under 3 minutes
-          </p>
-          <h1 className="mt-4 font-display text-[2.15rem] leading-[1.12] tracking-tight sm:text-5xl">
-            Financial clarity for growing businesses.
-          </h1>
-          <p className="mt-4 text-sm text-muted">
-            In partnership with{" "}
-            <VisariSiteLink
-              placement="home-hero"
-              className="text-fg underline-offset-2 hover:underline"
-            >
-              Visari Financial
-            </VisariSiteLink>
-          </p>
-          <p className="mt-5 text-[1.07rem] leading-relaxed text-muted">
-            Nine questions, then a score and a report you can actually read.
-            For U.S. owners at $500k-$10M who have outgrown bookkeeping.
-          </p>
-          <div className="mt-8">
-            <Link
-              to="/start"
-              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 text-[0.95rem] font-medium text-primary-fg shadow-card hover:bg-primary-soft"
-            >
-              Get my free report
-            </Link>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-10 sm:px-8 sm:pb-20 sm:pt-16 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-subtle">
+              Free · United States · Under 3 minutes
+            </p>
+            <h1 className="mt-4 font-display text-[2.15rem] leading-[1.12] tracking-tight sm:text-5xl">
+              Financial clarity for growing businesses.
+            </h1>
+            <p className="mt-4 text-sm text-muted">
+              In partnership with{" "}
+              <VisariSiteLink
+                placement="home-hero"
+                className="text-fg underline-offset-2 hover:underline"
+              >
+                Visari Financial
+              </VisariSiteLink>
+            </p>
+            <p className="mt-5 text-[1.07rem] leading-relaxed text-muted">
+              Nine questions, then a score and a report written for this
+              company, not a template. For U.S. owners at $500k-$10M who have
+              outgrown bookkeeping.
+            </p>
+            <p className="mt-4 text-[1.07rem] leading-relaxed text-muted">
+              Cash tighter than the P&L. A close you would not take into a
+              meeting. No clean answer to whether you can afford the next hire.
+              The report names which of those is actually the problem, in order.
+            </p>
+            <ul className="mt-6 space-y-2 text-sm leading-relaxed text-fg/90">
+              <li>
+                <span className="font-medium">Books.</span>{" "}
+                <span className="text-muted">
+                  Is the close real, or a tax-season reconstruction?
+                </span>
+              </li>
+              <li>
+                <span className="font-medium">Cash.</span>{" "}
+                <span className="text-muted">
+                  Today’s position, and 30-90 days out, not a bank-app glance.
+                </span>
+              </li>
+              <li>
+                <span className="font-medium">The next decision.</span>{" "}
+                <span className="text-muted">
+                  Can you underwrite a hire, a draw, or a job from the numbers?
+                </span>
+              </li>
+            </ul>
+            <div className="mt-8">
+              <Link
+                to="/start"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 text-[0.95rem] font-medium text-primary-fg shadow-card hover:bg-primary-soft"
+              >
+                Get my free report
+              </Link>
+            </div>
+            <p className="mt-5 text-sm text-subtle">
+              Answers stay on this device until you ask for a consult. The
+              report is complete even if you never talk to anyone.
+            </p>
           </div>
-          <p className="mt-5 text-sm text-subtle">
-            Answers stay on this device until you ask for a consult.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="mx-auto max-w-2xl px-5 py-12 sm:px-8 sm:py-16">
-          <ReportExcerpt onOpenSample={openSample} />
+          <div>
+            <ReportExcerpt onOpenSample={openSample} />
+          </div>
         </div>
       </section>
 
