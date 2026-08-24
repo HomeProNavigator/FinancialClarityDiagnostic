@@ -143,8 +143,8 @@ export function ReportView({
         <p className="mt-3 leading-relaxed text-fg/90">
           This diagnostic names whether the finance function is keeping up.
           Visari Financial is the partner we send owners to for the close, the
-          cash view, the systems, and a seat in the decisions. Request a free
-          consultation from the online report — they follow up.
+          cash view, the systems, and a seat in the decisions. For more on the
+          firm, visit https://visarifinancial.com.
         </p>
       </section>
 

@@ -4,6 +4,7 @@ export type AnalyticsEvent =
   | "form_completed"
   | "report_viewed"
   | "cta_clicked"
+  | "visari_site_clicked"
   | "sample_viewed"
   | "pdf_clicked"
   | "email_clicked";

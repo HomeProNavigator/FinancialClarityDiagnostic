@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ClarityMark } from "@/components/mark";
-import { VisariLink } from "@/components/visari-link";
+import { VisariLink, VisariSiteLink } from "@/components/visari-link";
 
 export function SiteFooter() {
   return (
@@ -41,13 +41,12 @@ export function SiteFooter() {
           <p className="text-xs uppercase tracking-[0.16em] text-subtle">Partner</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a
-                href="https://visarifinancial.com"
+              <VisariSiteLink
+                placement="footer-home"
                 className="text-fg hover:text-primary"
-                rel="noopener noreferrer"
               >
                 Visari Financial
-              </a>
+              </VisariSiteLink>
             </li>
             <li>
               <VisariLink

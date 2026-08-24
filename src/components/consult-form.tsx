@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { useRefCode } from "@/components/visari-link";
+import { useRefCode, VisariMoreLine } from "@/components/visari-link";
 import {
   NETLIFY_FORM_ACTION,
   NETLIFY_FORM_NAME,
@@ -109,6 +109,10 @@ export function ConsultForm({
           We passed your contact details and diagnostic answers to Visari
           Financial. Expect a note to schedule a free business consultation.
         </p>
+        <VisariMoreLine
+          placement={`${placement}-thanks`}
+          className="mt-3 text-sm leading-relaxed text-muted"
+        />
       </div>
     );
   }

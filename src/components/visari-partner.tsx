@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ConsultForm } from "@/components/consult-form";
+import { VisariMoreLine } from "@/components/visari-link";
 
 const STRENGTHS = [
   {
@@ -63,6 +64,11 @@ export function VisariPartner({
           ))}
         </ul>
       )}
+
+      <VisariMoreLine
+        placement={`${placement}-site`}
+        className="mt-6 max-w-2xl text-sm leading-relaxed text-primary-fg/80"
+      />
 
       <div className="mt-8 no-print">
         {sample ? (
