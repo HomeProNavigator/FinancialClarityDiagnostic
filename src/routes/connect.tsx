@@ -26,10 +26,10 @@ function ConnectPage() {
     <main className="mx-auto w-full max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
       <VisariPartner placement={placement} variant="page" />
       <Link
-        to="/"
+        to="/start"
         className="mt-8 inline-flex text-sm text-muted hover:text-fg"
       >
-        Back to the diagnostic
+        Get the free Financial Clarity Report
       </Link>
     </main>
   );

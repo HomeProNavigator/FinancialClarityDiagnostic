@@ -111,13 +111,13 @@ function AdvisorsPage() {
           to="/start"
           className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 text-sm font-medium text-primary-fg"
         >
-          Run it yourself first
+          Run the Financial Clarity Diagnostic first
         </Link>
         <Link
-          to="/"
+          to="/connect"
           className="text-sm text-muted underline-offset-2 hover:underline"
         >
-          See the diagnostic
+          Request a Visari consultation
         </Link>
       </div>
     </main>

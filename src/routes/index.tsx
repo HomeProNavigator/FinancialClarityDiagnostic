@@ -332,7 +332,7 @@ function Home() {
             Questions owners actually ask
           </h2>
           <ul className="mt-10 grid gap-x-16 gap-y-0 sm:grid-cols-2">
-            {GUIDES.slice(0, 4).map((g) => (
+            {GUIDES.map((g) => (
               <li key={g.slug} className="border-t border-border">
                 <Link
                   to="/guides/$slug"
@@ -347,6 +347,13 @@ function Home() {
               </li>
             ))}
           </ul>
+          <Link
+            to="/guides"
+            className="mt-8 inline-flex items-center text-sm text-muted hover:text-fg"
+          >
+            All field notes for growing owners
+            <ArrowRight className="ml-1 size-4" />
+          </Link>
         </div>
       </section>
 
