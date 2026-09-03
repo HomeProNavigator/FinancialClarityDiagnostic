@@ -1,7 +1,7 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { GUIDES, guideBySlug, type Guide } from "@/lib/guides";
-import { pageHead } from "@/lib/seo";
+import { pageHead, GUIDE_FAQS, guideJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/guides/$slug")({
   head: ({ params }) => {
@@ -33,9 +33,20 @@ function GuidePage() {
   const guide = guideBySlug(slug);
   if (!guide) return null;
   const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3);
+  const faqs = GUIDE_FAQS[guide.slug];
+  const jsonLd = guideJsonLd({
+    title: guide.title,
+    description: guide.description,
+    path: `/guides/${guide.slug}`,
+    faqs,
+  });
 
   return (
     <main className="mx-auto max-w-2xl px-5 py-14 sm:px-8 sm:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <p className="text-xs uppercase tracking-[0.18em] text-subtle">
         {guide.kicker} · {guide.readMinutes} min read
       </p>
